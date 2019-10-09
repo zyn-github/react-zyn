@@ -4,6 +4,8 @@ import MtButton from '../Button/index.js';
 import MtNote from '../Note/index.js';
 import MtHook from '../Hook/index.js';
 import MtProps from '../Props/index.js';
+import MtDom from '../Dom/index.js';
+
 
 
 class BaseLanguage extends Component {
@@ -29,6 +31,9 @@ class BaseLanguage extends Component {
                 </section>
                  <section>
                     <MtProps order={`order is isRequired`}></MtProps>    
+                </section>
+                 <section>
+                    <MtDom order={`order is isRequired`}></MtDom>    
                 </section>
             </div>
         )

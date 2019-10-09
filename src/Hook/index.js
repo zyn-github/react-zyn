@@ -37,6 +37,7 @@ class MtHook extends Component {
     }
     componentDidMount() {
         // 页面加载只执行一次 在render方法之后执行
+        // 这里可以获取真实的DOM
         console.log('componentDidMount----组件挂载完成的时刻执行==>> 在render方法之后执行')
     }
 
