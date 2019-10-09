@@ -7,7 +7,7 @@ class MtDom extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { count: 0 };
+        this.state = { count: +(new Date()) };
     }
 
     render() {
@@ -17,13 +17,25 @@ class MtDom extends Component {
                 <section>
                     <MtChild ref="myChild"></MtChild>
                 </section>
+                <button onClick={this.openPortalFn.bind(this)}>click openPortal</button>
+                <button onClick={this.closePortalFn.bind(this)}>click closePortal</button>
             </div>
         )
     }
 
     addfn() {
-        this.setState({count: this.state.count ++ });
+        this.setState({count: +(new Date()) });
     }
+
+    openPortalFn() {
+        return console.log(this.refs.myChild);
+        this.refs.myChild.openPortal();
+    }
+
+    closePortalFn() {
+        ReactDOM.findDOMNode(this.refs.myChild).closePortal();
+    }
+
 
     componentDidMount() {
         // 组件挂载之后可以获取Dom
@@ -40,7 +52,7 @@ class MtDom extends Component {
         // this 􏲗􏾢􏱩组件的实􏶽 可以通过js 操作dom
         const dom = ReactDOM.findDOMNode(this);
         console.log(dom, 'componentDidUpdate');
-        dom.setAttribute('class', 'upDate');
+        // dom.setAttribute('class', 'upDate');
     }
 }
 export default MtDom;
