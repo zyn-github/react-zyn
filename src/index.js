@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+import './index.css';
 // 将App组件添加到root节点里面
 ReactDOM.render(<App />, document.getElementById('root'));
 
