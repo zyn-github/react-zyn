@@ -35,7 +35,7 @@ class BaseLanguage extends Component {
     }
 
     addList() {
-        this.setState({
+        this.setState({ // 修改构造器函数中的 state
             list: [...this.state.list, this.state.inputValue]
         })
 

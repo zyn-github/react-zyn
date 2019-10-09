@@ -5,6 +5,11 @@ import React, { Component } from 'react';
 // 当􏰆􏰇接􏼫新的数据时，􏲇􏰆􏰇􏰟即更新时候。
 //  propTypes 和 defaultProps 分􏳑􏱘􏰓 props 􏰅型􏻸􏻹和􏽣􏺿􏰅型。这两个􏰐性􏲪声明成 􏺆态􏰐性，􏱑􏼩􏵉从􏰅􏰹面也可以􏲚问它􏰳，比如可以这􏱽􏲚问:MtHook.propTypes 和 MtHook.defaultProps
 // 􏰟更新过程􏳯的是􏽖􏰆􏰇向􏰑􏱹􏱺 props 或􏰆􏰇􏱕􏳌􏳸行 setState 方􏰿时发生的一􏲓􏼜􏰟新 动作
+// 
+/**
+ * this.setState({'prolist': Object.keys(PropTypes)});
+ * 可以使用 this.setState的方法是 componentWillMount、componentDidMount、componentWillReceiveProps、componentDidUpdate
+ */
 class MtHook extends Component {
 
     static propTypes = {};
