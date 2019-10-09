@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * @key ProTypes
+ * @link https://react-1251415695.cos-website.ap-chengdu.myqcloud.com/docs/typechecking-with-proptypes.html
+ * @des 用法参考
+ */
+
 class MtProps extends Component {
     constructor(props) {
         super(props);

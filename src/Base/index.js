@@ -6,6 +6,7 @@ import MtHook from '../Hook/index.js';
 import MtProps from '../Props/index.js';
 import MtDom from '../Dom/index.js';
 import MtEvent from '../Event/index.js';
+import MtClassName from '../Class/index.js';
 
 
 
@@ -40,6 +41,11 @@ class BaseLanguage extends Component {
                 <section>
                     <MtEvent></MtEvent>    
                 </section>
+                
+                <section>
+                    <MtClassName></MtClassName>    
+                </section>
+
 
             </div>
         )
