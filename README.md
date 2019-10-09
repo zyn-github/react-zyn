@@ -34,4 +34,8 @@
 
 #src/Button 自定义组件 (props 获取父组件传值)
 
+# this.setState({'prolist': Object.keys(PropTypes)}); 用法
+
+	可以使用 this.setState的钩子是方法是 componentWillMount、componentDidMount、componentWillReceiveProps、componentDidUpdate
+
 ```
