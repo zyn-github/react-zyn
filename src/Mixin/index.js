@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
 
+import { mixin } from 'core-decorators';
+
+
+const PureRender = {
+    shouldComponentUpdate() {}
+};
+const Theme = {
+    setTheme() {}
+};
+
+@mixin(PureRender, Theme)
 class MtMixin extends Component {
     constructor(props) {
         super(props);
