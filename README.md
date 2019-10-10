@@ -57,4 +57,7 @@
 
 #src/Dom (React 添加Class)	
 	classNames 模块实现批量添加class
+
+#src/Mixin 
+	react混入、react通过高阶函数实现共享公共方法
 ```
