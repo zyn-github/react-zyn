@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-// button 按钮组件
-
 class MtNote extends Component {
     constructor(props) {
         super(props);

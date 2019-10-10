@@ -32,10 +32,29 @@
 
 	serviceWorker.js: 这个是用于写移动端开发的，PWA必须用到这个文件，有了这个文件，就相当于有了离线浏览的功能。
 
+
+#src/Note 添加注释组件
+	介绍两种注释的写法
+
 #src/Button 自定义组件 (props 获取父组件传值)
 
-# this.setState({'prolist': Object.keys(PropTypes)}); 用法
 
+# src/Flow 组件之间通讯方式
+	父组件向子组件通讯、子组件向父组件通讯	、(context来实现 跨级组件数据的传递)、没有嵌套关系组件通讯
+
+#src/Props (props 获取父组件传值)	
+	propTypes的定义、propTypes类型、
+
+#src/Event (Event 绑定事件)		
+	介绍四种事件绑定方式、绑定事件，释放事件
+
+#src/Hook (React 声明周期函数执行)		
+	this.setState({'prolist': Object.keys(PropTypes)}); 用法
 	可以使用 this.setState的钩子是方法是 componentWillMount、componentDidMount、componentWillReceiveProps、componentDidUpdate
 
+#src/Dom (React DOM操作)	
+	获取当前组件DOM实例（ReactDOM.findDOMNode(this)）、获取子组件DOM实例（ref）
+
+#src/Dom (React 添加Class)	
+	classNames 模块实现批量添加class
 ```

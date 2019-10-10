@@ -7,6 +7,8 @@ import MtProps from '../Props/index.js';
 import MtDom from '../Dom/index.js';
 import MtEvent from '../Event/index.js';
 import MtClassName from '../Class/index.js';
+import MtFlow from '../Flow/index.js';
+
 
 
 
@@ -14,13 +16,13 @@ import MtClassName from '../Class/index.js';
 class BaseLanguage extends Component {
     constructor(props) {
         super(props);
-
-        this.state = { inputValue: 'kk', list: ['张飞', '刘备'] } // 单向数据流 监听数据
+        this.state = { inputValue: 'kk', list: ['张飞', '刘备'], setChildValue: +(new Date()), textValue:'父组件定义值' } // 单向数据流 监听数据
     }
 
     render() {
         console.log('render---组件挂载中.......')
         // 有state和props变化就会执行
+        const { setChildValue, textValue } = this.state;
         return (
             <div className="server-bg">
                 <section>
@@ -36,26 +38,33 @@ class BaseLanguage extends Component {
                     <MtProps order={`order is isRequired`}></MtProps>    
                 </section>
                  <section>
-                    <MtDom order={`order is isRequired`}></MtDom>    
+                    <MtDom></MtDom>    
                 </section>
                 <section>
                     <MtEvent></MtEvent>    
                 </section>
-                
+
                 <section>
                     <MtClassName></MtClassName>    
                 </section>
-
-
+                <section>
+                    <button onClick={()=> this.changeData()}>通知子组件更新数据</button>
+                    <p>父组件数据被更新了：{textValue}</p>
+                    <MtFlow appData={setChildValue} handleItemChange={(vau)=> this.handleItemChange(vau)}></MtFlow>    
+                </section>
             </div>
         )
     }
 
-    addList() {
-        this.setState({ // 修改构造器函数中的 state
-            list: [...this.state.list, this.state.inputValue]
-        })
 
+    handleItemChange(value){
+        // 监子组件的值是否变化
+        this.setState({ textValue: value });
+    }
+
+    changeData() {
+        // 修改数据传递给子组件
+        this.setState({ setChildValue: +(new Date()) });
     }
 
     deleteItem(index) {
@@ -64,16 +73,6 @@ class BaseLanguage extends Component {
         this.setState({ list: list });
     }
 
-    inputChange(e) {
-        console.log(e.target.value);
-        // 重新修改 this.state 里面的值
-        // this.state.inputValue = e.target.value;  该种计算方式不可以 需要通过 setState来进行改变 监听值的变化
-
-        this.setState({
-            inputValue: e.target.value
-        });
-
-    }
 
     componentWillMount() {
         // 页面加载只执行一次
