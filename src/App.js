@@ -4,6 +4,8 @@ import BaseLanguage from './Base/index.js';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react' // 解构写法
 
+import emitter from './reactBus';
+
 class App extends Component {
 
     constructor(props) {
@@ -30,18 +32,18 @@ class App extends Component {
     render() {
         return (
             <div className="app-home">
-	            <section className="border">
-	            	<p>父组件 APP</p>
-	            	<div>
-	            		<p>Flow背景颜色是： {this.state.getChildColor}</p>
-						<button onClick={()=>this.xx()}>跨组件更新颜色</button>
-	            	</div>
-	            </section>	
-	             <div className="border">
-	             	<p>子组件 Base</p>
-	             	<img className="app-logo" src={logo} />
-	              	<BaseLanguage />
-	             </div>
+                <section className="border">
+                    <p>父组件 APP</p>
+                    <div>
+                        <p>Flow背景颜色是： {this.state.getChildColor}</p>
+                        <button onClick={()=>this.xx()}>跨组件更新颜色</button>
+                    </div>
+                </section>  
+                 <div className="border">
+                    <p>子组件 Base</p>
+                    <img className="app-logo" src={logo} />
+                    <BaseLanguage />
+                 </div>
             </div>
         )
     }
@@ -59,9 +61,19 @@ class App extends Component {
     }
 
     AppTest(v) {
-    	this.setState({getChildColor: v});
+        this.setState({ getChildColor: v });
         console.log('App:', v);
 
+    }
+
+    componentDidMount() {
+        this.itemChange = emitter.on('ItemChangeKL', (data) => {
+            console.log(data, 'ItemChangeKL');
+        });
+    }
+
+    componentWillUnmount() {
+        emitter.removeListener(this.itemChange);
     }
 }
 export default App;

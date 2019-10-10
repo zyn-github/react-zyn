@@ -8,6 +8,7 @@ import MtDom from '../Dom/index.js';
 import MtEvent from '../Event/index.js';
 import MtClassName from '../Class/index.js';
 import MtFlow from '../Flow/index.js';
+import MtMixin from '../Mixin/index.js';
 
 
 
@@ -16,7 +17,7 @@ import MtFlow from '../Flow/index.js';
 class BaseLanguage extends Component {
     constructor(props) {
         super(props);
-        this.state = { inputValue: 'kk', list: ['张飞', '刘备'], setChildValue: +(new Date()), textValue:'父组件定义值' } // 单向数据流 监听数据
+        this.state = { inputValue: 'kk', list: ['张飞', '刘备'], setChildValue: +(new Date()), textValue: '父组件定义值' } // 单向数据流 监听数据
     }
 
     render() {
@@ -52,12 +53,17 @@ class BaseLanguage extends Component {
                     <p>父组件数据被更新了：{textValue}</p>
                     <MtFlow appData={setChildValue} handleItemChange={(vau)=> this.handleItemChange(vau)}></MtFlow>    
                 </section>
+
+                <section>
+                    <MtMixin></MtMixin>    
+                </section>
+
             </div>
         )
     }
 
 
-    handleItemChange(value){
+    handleItemChange(value) {
         // 监子组件的值是否变化
         this.setState({ textValue: value });
     }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import emitter from '../reactBus';
 
 class MtFlow extends Component {
     constructor(props) {
@@ -21,6 +22,10 @@ class MtFlow extends Component {
         handleItemChange: () => {},
     };
 
+    zynKK(v){
+        emitter.emit('ItemChangeKL', v);
+    }
+
     render() {
         const { appData } = this.props;
         return (
@@ -40,7 +45,8 @@ class MtFlow extends Component {
                      <button onClick={()=> this.context.handleItemApp('To App-->>' + this.context.color)}>跨组件修改顶层组件的值 to App</button>
                 </section>
                 <section>
-                    <p>没有嵌套关系组件通讯</p>
+                    <p>没有嵌套关系组件通讯(events)</p>
+                    <button onClick={()=> this.zynKK('没有嵌套关系组件通讯 from Flow')}>没有嵌套关系组件通讯</button>
                 </section>
 
 
